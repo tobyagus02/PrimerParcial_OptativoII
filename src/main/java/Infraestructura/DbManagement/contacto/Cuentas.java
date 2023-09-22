@@ -5,6 +5,7 @@
 package Infraestructura.DbManagement.contacto;
 
 import Infraestructura.Conections.Conexiones;
+import Infraestructura.Models.CuentasModels;
 import java.sql.SQLException;
 
 /**
@@ -57,39 +58,42 @@ public class Cuentas {
 
         try {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
-            boolean execute = conexion.getQuerySQL().execute("UPDATE Persona SET " +
-                    "id_Persona' = '" + cuentas.Id_Persona + "'," +
-                    "id_Ciudad' = '" + cuentas.Id_Ciudad + "'," +
-                    "nombre' = '" + cuentas.Nombre + "'," +
-                    "apellido = '" + cuentas.Apellido + "'," +
-                    "tipodocumento = '" + cuentas.TipoDocumento + "'," +
-                    "nrodocumento = '" + persona.NroDocumento + "'," +
-                    "direccion = '" + persona.Direccion + "'," +
-                    "celular = '" + persona.Celular + "'," +
-                    "email = '" + persona.Email + "'," +
-                    "estado = '" + persona.Estado + "' Where personas.idPersona = " + persona.Id_Persona);
+            boolean execute = conexion.getQuerySQL().execute("UPDATE Cuentas SET " +
+                    "Id_Cuentas' = '" + cuentas.Id_Cuentas + "'," +
+                    "Id_Cliente' = '" + cuentas.Id_Cliente + "'," +
+                    "Nro_cuenta' = '" + cuentas.Nro_cuenta + "'," +
+                    "Fecha_Alta = '" + cuentas.Fecha_Alta + "'," +
+                    "Tipo_cuenta = '" + cuentas.Tipo_cuenta + "'," +
+                    "Estado = '" + cuentas.Estado + "'," +
+                    "Saldo = '" + cuentas.Saldo + "'," +
+                    "Nro_contrato = '" + cuentas.Nro_contrato + "'," +
+                    "Costo_Mantenimiento = '" + cuentas.Costo_Mantenimiento + "'," +
+                    "Promedio_Acreditacion = '" + cuentas.Promedio_Acreditacion + "'," +
+                    "Moneda = '" + cuentas.Moneda + "' Where cuentas.idCuentas = " + cuentas.Id_Cuentas);
             conexion.conexionDB().close();
-            return "Los datos de la persona " + persona.Nombre + " fue modificado correctamente!!!";
+            return "Los datos de la cuenta " + cuentas.Id_Cuentas + " fue modificado correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public PersonaModels consultarPersona(int id){
-        PersonaModels persona = new PersonaModels();
+    public CuentasModels consultarCuentas(int id){
+        CuentasModels cuentas = new CuentasModels();
         try {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
-            conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from persona where idPersona = " + id));
+            conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from cuenta where idCuentas = " + id));
             if(conexion.getResultadoQuery().next()){
-                persona.Nombre = conexion.getResultadoQuery().getString("nombre");
-                persona.Apellido = conexion.getResultadoQuery().getString("apellido");
+                cuentas.Nro_cuenta = conexion.getResultadoQuery().getString("Nro_cuenta");
+                cuentas.Fecha_Alta = conexion.getResultadoQuery().getString("Fecha_Alta");
 
 
-                return persona;
+                return cuentas;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
     }
-}
+
+    
+    }
