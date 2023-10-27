@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Toby
  */
 public class Cliente {
-        private Conexiones conexion;
+        private final Conexiones conexion;
 
     public Cliente(String userBD, String passDB, String hostDB, String portDB, String dataBase){
         conexion = new Conexiones(userBD, passDB, hostDB, portDB, dataBase);
@@ -65,8 +65,11 @@ public class Cliente {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
             conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from Cliente where id = " + id));
             if(conexion.getResultadoQuery().next()){
-                cliente.Fecha_Ingreso = conexion.getResultadoQuery().getString("Fecha");
+                cliente.Id_Cliente = conexion.getResultadoQuery().getInt("id_cliente");
+                cliente.Id_Persona = conexion.getResultadoQuery().getInt("id_persona");
+                cliente.Fecha_Ingreso = conexion.getResultadoQuery().getString("Fecha_Ingreso");
                 cliente.Calificacion = conexion.getResultadoQuery().getString("Calificacion");
+                cliente.Estado = conexion.getResultadoQuery().getString("estado");
 
 
                 return cliente;

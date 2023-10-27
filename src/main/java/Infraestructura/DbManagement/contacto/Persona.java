@@ -80,8 +80,16 @@ public class Persona {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
             conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from persona where idPersona = " + id));
             if(conexion.getResultadoQuery().next()){
+                persona.Id_Ciudad= conexion.getResultadoQuery().getInt("id_ciudad");
                 persona.Nombre = conexion.getResultadoQuery().getString("nombre");
                 persona.Apellido = conexion.getResultadoQuery().getString("apellido");
+                persona.TipoDocumento= conexion.getResultadoQuery().getString("tipo_documento");
+                persona.NroDocumento= conexion.getResultadoQuery().getString("nro_documento");
+                persona.Direccion= conexion.getResultadoQuery().getString("direccion");
+                persona.Celular= conexion.getResultadoQuery().getString("celular");
+                persona.Email= conexion.getResultadoQuery().getString("email");
+                persona.Estado= conexion.getResultadoQuery().getString("estado");
+                                
 
 
                 return persona;

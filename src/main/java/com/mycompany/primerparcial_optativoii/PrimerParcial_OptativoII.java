@@ -27,11 +27,11 @@ public class PrimerParcial_OptativoII {
         calendario.set(2023, Calendar.SEPTEMBER, 21);
 
 
-/*      Personas
 
-        Personas_servicios personaService = new Personas_servicios("postgres", "0000", "localhost", "5432", "BaseDatos_Examen_OptativoII");
+/*
+        PersonaService personaService = new PersonaService ("postgres", "12344321", "localhost", "5432", "postgres");
 
-        Persona_modelo persona = new Persona_modelo();
+        PersonaModels persona = new PersonaModels();
         persona.Nombre = "Juan";
         persona.Apellido = "Perez";
 
@@ -44,16 +44,16 @@ public class PrimerParcial_OptativoII {
         */
 
 
-       /*  Clientes
+      
+/*
+       ClienteService clienteService =new ClienteService("postgres", "12344321", "localhost", "5432", "postgres");
 
-       Cliente_servicios clienteService =new Cliente_servicios("postgres", "0000", "localhost", "5432", "BaseDatos_Examen_OptativoII");
 
 
-
-        Cliente_modelo cliente = new Cliente_modelo();
-        cliente.IdCliente=1;
-        cliente.IdPersona=1;
-        cliente.FechaIngreso=calendario.getTime();
+        ClienteModels cliente = new ClienteModels();
+        cliente.Id_Cliente=1;
+        cliente.Id_Persona=1;
+        cliente.Fecha_Ingreso=calendario.getTime();
         cliente.Estado="Activo";
         cliente.Calificacion="Exelente";
 
@@ -67,25 +67,25 @@ public class PrimerParcial_OptativoII {
 
         /*   Ciudad
 
-        Ciudad_servicios ciudadService = new Ciudad_servicios("postgres", "0000", "localhost", "5432", "BaseDatos_Examen_OptativoII");
+        CiudadService ciudadService = new CiudadService("postgres", "12344321", "localhost", "5432", "postgres");
 
-        Ciudad_modelo ciudad = new Ciudad_modelo();
+        CiudadModels ciudad = new CiudadModels();
         ciudad.Nombre_ciudad="Asuncion";
-        ciudad.Idciudad=2;
+        ciudad.Id_ciudad=2;
         ciudad.Departamento="Central";
 
 
-        ciudadService.registrarCiudad(ciudad);
+        CiudadService.registrarCiudad(ciudad);
 
-        ciudadService.consultarCiudadPorId(2);
+        CiudadService.consultarCiudadPorId(2);
 
-        ciudadService.modificarCiudad(ciudad);
+        CiudadService.modificarCiudad(ciudad);
 
         */
 
         /*    Cuentas
 
-        Cuentas_servicios cuentaService =new Cuentas_servicios("postgres", "0000", "localhost", "5432", "BaseDatos_Examen_OptativoII");
+        CuentasService cuentaService =new CuentaService("postgres", "12344321", "localhost", "5432", "postgres");
 
         Cuentas_modelo cuentas =new Cuentas_modelo();
         cuentas.IdCuenta=1;
@@ -109,23 +109,23 @@ public class PrimerParcial_OptativoII {
         */
         /*   Movimientos
 
-        Movimientos_servicios movimientoService =new Movimientos_servicios("postgres", "0000", "localhost", "5432", "BaseDatos_Examen_OptativoII");
+        MovimientosService movimientoService =new MovimientosService("postgres", "12344321", "localhost", "5432", "postgres");
 
-        Movimientos_models movimiento = new Movimientos_models();
-        movimiento.IdMovimiento=1;
-        movimiento.IdCuenta=1;
-        movimiento.TipoMovimiento="Extraccion";
-        movimiento.FechaMovimiento=calendario.getTime();
-        movimiento.Saldoanterior=Float.valueOf(450000);
-        movimiento.Saldoactual=Float.valueOf(440000);
-        movimiento.Montomovimiento=Float.valueOf(10000);
-        movimiento.CuentaOrigen=Float.valueOf(123);
-        movimiento.CuentaDestino=Float.valueOf(456);
+        MovimientosModels movimiento = new MovimientosModels();
+        movimiento.Id_Movimiento=1;
+        movimiento.Id_Cuenta=1;
+        movimiento.Tipo_Movimiento="Extraccion";
+        movimiento.Fecha_Movimiento=calendario.getTime();
+        movimiento.Saldo_anterior=Float.valueOf(450000);
+        movimiento.Saldo_actual=Float.valueOf(440000);
+        movimiento.Monto_movimiento=Float.valueOf(10000);
+        movimiento.Cuenta_Origen=Float.valueOf(123);
+        movimiento.Cuenta_Destino=Float.valueOf(456);
         movimiento.Canal= Float.valueOf(1);
 
-        movimientoService.registrarMovimientos(movimiento);
-        movimientoService.modificarCuenta(movimiento);
-        movimientoService.consultarMovimientoPorId(1);
+        MovimientoService.registrarMovimientos(movimiento);
+        MovimientoService.modificarCuenta(movimiento);
+        MovimientoService.consultarMovimientoPorId(1);
 
  */
      }

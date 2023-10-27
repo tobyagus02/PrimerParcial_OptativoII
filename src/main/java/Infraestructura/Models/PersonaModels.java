@@ -4,8 +4,6 @@
  */
 package Infraestructura.Models;
 
-import java.util.Date;
-
 
 public class PersonaModels {
     public int Id_Persona;

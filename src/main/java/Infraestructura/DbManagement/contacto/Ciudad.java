@@ -48,7 +48,7 @@ public class Ciudad {
                     "Departamento = '" + ciudad.Departamento + "'," +
                     "Postal_code = '" + ciudad.Postal_code + "'," );
                     conexion.conexionDB().close();
-            return "Los datos de la persona " + ciudad.Ciudad + " fue modificado correctamente!!!";
+            return "Los datos de la ciudad " + ciudad.Ciudad + " fue modificado correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

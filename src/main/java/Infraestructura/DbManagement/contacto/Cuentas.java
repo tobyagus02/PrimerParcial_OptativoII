@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Toby
  */
 public class Cuentas {
-    private Conexiones conexion;
+    private final Conexiones conexion;
 
     public Cuentas(String userBD, String passDB, String hostDB, String portDB, String dataBase){
         conexion = new Conexiones(userBD, passDB, hostDB, portDB, dataBase);
@@ -83,8 +83,17 @@ public class Cuentas {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
             conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from cuenta where idCuentas = " + id));
             if(conexion.getResultadoQuery().next()){
-                cuentas.Nro_cuenta = conexion.getResultadoQuery().getString("Nro_cuenta");
+                cuentas.Id_Cuentas = conexion.getResultadoQuery().getInt("Id_Cuentas");
+                cuentas.Id_Cliente = conexion.getResultadoQuery().getInt("Id_cliente");
+                cuentas.Nro_cuenta = conexion.getResultadoQuery().getString("nro_cuenta");
                 cuentas.Fecha_Alta = conexion.getResultadoQuery().getString("Fecha_Alta");
+                cuentas.Tipo_cuenta = conexion.getResultadoQuery().getString("tipo_cuenta");
+                cuentas.Estado = conexion.getResultadoQuery().getString("estado");
+                cuentas.Saldo = conexion.getResultadoQuery().getString("saldo");
+                cuentas.Nro_contrato = conexion.getResultadoQuery().getString("nro_contrato");
+                cuentas.Costo_Mantenimiento = conexion.getResultadoQuery().getString("costo_mantenimiento");
+                cuentas.Promedio_Acreditacion = conexion.getResultadoQuery().getString("promedio_acreditacion");
+                cuentas.Moneda= conexion.getResultadoQuery().getString("moneda");
 
 
                 return cuentas;

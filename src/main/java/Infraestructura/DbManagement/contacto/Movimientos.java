@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author Toby
  */
 public class Movimientos {
-    private Conexiones conexion;
+    private final Conexiones conexion;
 
     public Movimientos(String userBD, String passDB, String hostDB, String portDB, String dataBase){
         conexion = new Conexiones(userBD, passDB, hostDB, portDB, dataBase);
@@ -80,9 +80,16 @@ public class Movimientos {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
             conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from persona where idPersona = " + id));
             if(conexion.getResultadoQuery().next()){
-                movimientos.Fecha_movimiento = conexion.getResultadoQuery().getString("Fecha_movimiento");
-                movimientos.Tipo_movimiento = conexion.getResultadoQuery().getString("Tipo_movimiento");
-
+                movimientos.Id_Cuentas = conexion.getResultadoQuery().getInt("id_cuenta");
+                movimientos.Fecha_movimiento = conexion.getResultadoQuery().getString("fecha_movimiento");
+                movimientos.Tipo_movimiento = conexion.getResultadoQuery().getString("tipo_movimiento");
+                movimientos.Saldo_anterior = conexion.getResultadoQuery().getString("saldo_anterior");
+                movimientos.Saldo_actual = conexion.getResultadoQuery().getString("saldo_actual");
+                movimientos.Monto_movimiento = conexion.getResultadoQuery().getString("monto_movimiento");
+                movimientos.Cuenta_origen = conexion.getResultadoQuery().getString("cuenta_origen");
+                movimientos.Cuenta_destino = conexion.getResultadoQuery().getString("cuenta_destino");
+                movimientos.Canal= conexion.getResultadoQuery().getString("canal");
+                
 
                 return movimientos;
             }
