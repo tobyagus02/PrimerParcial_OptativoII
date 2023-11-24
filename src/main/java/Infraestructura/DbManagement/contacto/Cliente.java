@@ -30,13 +30,13 @@ public class Cliente {
                     "'Calificacion', " +
                     "'Estado') " +
                     "values('" +
-                    cliente.Id_Cliente + "', '" +
-                    cliente.Id_Persona + "', '" +
-                    cliente.Fecha_Ingreso + "', '" +
-                    cliente.Calificacion + "', '" +
-                    cliente.Estado + "'))");
+                    cliente.getId_Cliente() + "', '" +
+                    cliente.getId_Persona() + "', '" +
+                    cliente.getFecha_Ingreso() + "', '" +
+                    cliente.getCalificacion() + "', '" +
+                    cliente.getEstado() + "'))");
             conexion.conexionDB().close();
-            return "El cliente " + cliente.Id_Cliente + " fue registrado correctamente!!!";
+            return "El cliente " + cliente.getId_Cliente() + " fue registrado correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -47,13 +47,13 @@ public class Cliente {
         try {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
             boolean execute = conexion.getQuerySQL().execute("UPDATE Cliente SET " +
-                    "id_Cliente' = '" + cliente.Id_Cliente + "'," +
-                    "id_Ciudad' = '" + cliente.Id_Persona + "'," +
-                    "Fecha_Ingreso' = '" + cliente.Fecha_Ingreso + "'," +
-                    "Calificacion = '" + cliente.Calificacion + "'," +
-                    "estado = '" + cliente.Estado + "' Where cliente.id_Cliente = " + cliente.Id_Cliente);
+                    "id_Cliente' = '" + cliente.getId_Cliente() + "'," +
+                    "id_Ciudad' = '" + cliente.getId_Persona() + "'," +
+                    "Fecha_Ingreso' = '" + cliente.getFecha_Ingreso() + "'," +
+                    "Calificacion = '" + cliente.getCalificacion() + "'," +
+                    "estado = '" + cliente.getEstado() + "' Where cliente.id_Cliente = " + cliente.getId_Cliente());
             conexion.conexionDB().close();
-            return "Los datos del cliente " + cliente.Id_Cliente + " fueron modificados correctamente!!!";
+            return "Los datos del cliente " + cliente.getId_Cliente() + " fueron modificados correctamente!!!";
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -65,11 +65,11 @@ public class Cliente {
             conexion.setQuerySQL(conexion.conexionDB().createStatement());
             conexion.setResultadoQuery(conexion.getQuerySQL().executeQuery("Select * from Cliente where id = " + id));
             if(conexion.getResultadoQuery().next()){
-                cliente.Id_Cliente = conexion.getResultadoQuery().getInt("id_cliente");
-                cliente.Id_Persona = conexion.getResultadoQuery().getInt("id_persona");
-                cliente.Fecha_Ingreso = conexion.getResultadoQuery().getString("Fecha_Ingreso");
-                cliente.Calificacion = conexion.getResultadoQuery().getString("Calificacion");
-                cliente.Estado = conexion.getResultadoQuery().getString("estado");
+                cliente.setId_Cliente  (conexion.getResultadoQuery().getInt("id_cliente"));
+                cliente.setId_Persona  (conexion.getResultadoQuery().getInt("id_persona"));
+                cliente.setFechaIngreso  (conexion.getResultadoQuery().getString("Fecha_Ingreso"));
+                cliente.setCalificacion  (conexion.getResultadoQuery().getString("Calificacion"));
+                cliente.setEstado  (conexion.getResultadoQuery().getString("estado"));
 
 
                 return cliente;
@@ -79,4 +79,15 @@ public class Cliente {
         }
         return null;
     }
+    public String eliminarcliente(int id){
+
+        try {
+            conexion.setQuerySQL(conexion.conexionDB().createStatement());
+            boolean execute = conexion.getQuerySQL().execute("DELETE FROM cliente" +
+                    " Where id_cliente = '" + id+ "'");
+            conexion.conexionDB().close();
+            return "Los datos del cliente fueron eliminados correctamente!!!";
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }}
 }

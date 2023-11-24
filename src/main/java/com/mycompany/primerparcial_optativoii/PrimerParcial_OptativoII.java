@@ -9,6 +9,7 @@ import Infraestructura.Models.ClienteModels;
 import Infraestructura.Models.CuentasModels;
 import Infraestructura.Models.MovimientosModels;
 import Infraestructura.Models.PersonaModels;
+import Presentations.Contactos.MainMenu;
 import Services.CiudadService;
 import Services.ClienteService;
 import Services.CuentasService;
@@ -22,6 +23,8 @@ public class PrimerParcial_OptativoII {
 
 
      public static void main(String[] args) {
+         
+         new MainMenu().setVisible(true);
 
         Calendar calendario = Calendar.getInstance();
         calendario.set(2023, Calendar.SEPTEMBER, 21);

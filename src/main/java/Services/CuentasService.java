@@ -41,10 +41,10 @@ public class CuentasService {
     }
     private boolean validarDatos(CuentasModels cuentas) {
         try {
-        if(cuentas.Nro_cuenta.trim().isEmpty())
-            throw new Exception("La cuenta no debe estar vacía");
-        else if (cuentas.Fecha_Alta.trim().length() < 3) {
-            throw new Exception("La cuenta no tiene la fecha necesaria");
+        if(cuentas.getEstado().trim().isEmpty())
+            throw new Exception("El estado no debe estar vacía");
+        else if (cuentas.getEstado().trim().length() < 3) {
+            throw new Exception("El estado no tiene la longitud necesaria");
         }
 
     } catch (Exception e) {

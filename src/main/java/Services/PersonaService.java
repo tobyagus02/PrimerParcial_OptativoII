@@ -42,9 +42,9 @@ public class PersonaService {
 
     private boolean validarDatos(PersonaModels Persona) {
         try {
-        if(Persona.Nombre.trim().isEmpty())
+        if(Persona.getNombre().trim().isEmpty())
             throw new Exception("El nombre no debe estar vacío");
-        else if (Persona.Nombre.trim().length() < 3) {
+        else if (Persona.getNombre().trim().length() < 3) {
             throw new Exception("El nombre no tiene la longitud necesaria");
         }
 

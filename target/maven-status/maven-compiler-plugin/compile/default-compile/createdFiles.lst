@@ -6,6 +6,7 @@ Presentations\Contactos\Personas$3.class
 Infraestructura\Models\MovimientosModels.class
 Presentations\Contactos\FindPeople$2.class
 Presentations\Contactos\Personas.class
+Presentations\Contactos\MainMenu$5.class
 Presentations\Contactos\Clientes$3.class
 com\mycompany\primerparcial_optativoii\PrimerParcial_OptativoII.class
 Presentations\Contactos\Ciudad$4.class
@@ -31,6 +32,7 @@ Presentations\Contactos\Cuentas$1.class
 Presentations\Contactos\Movimientos$4.class
 Infraestructura\Models\CuentasModels.class
 Presentations\Contactos\Clientes$2.class
+Presentations\Contactos\MainMenu$4.class
 Presentations\Contactos\Personas$9.class
 Presentations\Contactos\Personas$1.class
 Services\ClienteService.class
@@ -41,6 +43,7 @@ Services\CuentasService.class
 Services\MovimientosService.class
 Presentations\Contactos\Cuentas$2.class
 Presentations\Contactos\Clientes$4.class
+Presentations\Contactos\MainMenu$6.class
 Infraestructura\DbManagement\contacto\Ciudad.class
 Presentations\Contactos\Personas$4.class
 Presentations\Contactos\FindPeople$1.class
@@ -49,6 +52,7 @@ Infraestructura\DbManagement\contacto\Movimientos.class
 Presentations\Contactos\Personas$7.class
 Infraestructura\DbManagement\contacto\Cuentas.class
 Infraestructura\Models\CiudadModels.class
+Presentations\Contactos\MainMenu$3.class
 Infraestructura\Conections\Conexiones.class
 Presentations\Contactos\Cuentas.class
 Services\CiudadService.class

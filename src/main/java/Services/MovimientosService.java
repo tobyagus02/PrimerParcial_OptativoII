@@ -23,6 +23,10 @@ public class MovimientosService {
         }
         return "Ocurrió algún error, contactese con el Administrador";
     }
+    public String eliminarpersonaporId(int id){
+       
+            return movimientosDB.eliminarmovimiento(id);
+    }        
 
     public String modificarMovimientos(MovimientosModels movimientos){
         if(validarDatos(movimientos)){
@@ -37,9 +41,9 @@ public class MovimientosService {
     }
     private boolean validarDatos(MovimientosModels movimientos) {
         try {
-        if(movimientos.Fecha_movimiento.trim().isEmpty())
-            throw new Exception("La fecha no debe estar vacía");
-        else if (movimientos.Tipo_movimiento.trim().length() < 3) {
+        if(movimientos.getTipo_movimiento().trim().isEmpty())
+            throw new Exception("El movimiento no debe estar vacío");
+        else if (movimientos.getTipo_movimiento().trim().length() < 3) {
             throw new Exception("No cuenta con el tipo de movimiento necesario");
         }
 

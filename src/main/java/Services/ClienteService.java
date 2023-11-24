@@ -38,10 +38,10 @@ public class ClienteService {
 
     private boolean validarDatos(ClienteModels cliente) {
         try {
-        if(cliente.Fecha_Ingreso.trim().isEmpty())
-            throw new Exception("El cliente no debe estar vacío");
-        else if (cliente.Calificacion.trim().length() < 3) {
-            throw new Exception("El cliente no tiene la longitud necesaria");
+        if(cliente.getCalificacion().trim().isEmpty())
+            throw new Exception("La calificacion no debe estar vacía");
+        else if (cliente.getCalificacion().trim().length() < 3) {
+            throw new Exception("La calificacion no tiene la longitud necesaria");
         }
 
     } catch (Exception e) {
